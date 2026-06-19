@@ -95,6 +95,9 @@ cd BookWorm
 
 # Install langsung ke perangkat yang terhubung
 ./gradlew installDebug
+
+# Jalankan lint check
+./gradlew lint
 ```
 
 APK hasil build tersimpan di:
@@ -188,23 +191,6 @@ Semua data bersifat statis dan disimpan di `Catalogue.java`. Tidak ada database 
 | Plato's Atheneum | Yogyakarta |
 | The Serpent's Archive | Jakarta |
 | Alexandria Branch | Surabaya |
-
----
-
-## Build & Run
-
-```bash
-# Build debug APK
-./gradlew assembleDebug
-
-# Install ke perangkat yang terhubung
-./gradlew installDebug
-
-# Jalankan lint check
-./gradlew lint
-```
-
-> Pastikan Android SDK sudah terinstal dan perangkat/emulator sudah terhubung sebelum menjalankan `installDebug`.
 
 ---
 
