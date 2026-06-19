@@ -41,7 +41,7 @@ Aplikasi Android toko buku digital yang menampilkan koleksi buku klasik pilihan 
 |---|---|
 | Bahasa | Java |
 | Compile SDK | 36 |
-| Min SDK | 35 (Android 15) |
+| Min SDK | 35 |
 | Target SDK | 35 |
 | Build Tools | Gradle (Kotlin DSL) |
 | View Binding | Aktif |
