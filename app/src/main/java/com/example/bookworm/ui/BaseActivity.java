@@ -5,6 +5,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
@@ -78,6 +79,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         ImageView icon = item.findViewById(R.id.iv_menu_icon);
         TextView  text = item.findViewById(R.id.tv_menu_label);
         icon.setImageResource(iconRes);
+        Drawable d = icon.getDrawable();
+        if (d != null) icon.setImageDrawable(d.mutate());
         text.setText(label);
         int color = isLogout ? getColor(R.color.color_error) : getColor(R.color.color_primary_3);
         text.setTextColor(color);

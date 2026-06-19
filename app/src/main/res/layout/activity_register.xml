@@ -24,13 +24,14 @@
             <!-- Book decorations (absolute via FrameLayout overlay) -->
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="@dimen/logo_height"
+                android:clipChildren="false">
 
                 <!-- Logo -->
                 <ImageView
                     android:layout_width="@dimen/logo_width"
                     android:layout_height="@dimen/logo_height"
-                    android:src="@drawable/ic_bookworm_logo_auth"
+                    android:src="@drawable/ic_bookworm_logo_app"
                     android:scaleType="fitXY"
                     android:contentDescription="@string/app_name" />
 
@@ -85,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/label_hello"
                 android:textColor="@color/color_primary_3"
@@ -294,64 +295,6 @@
                 style="@style/Widget.BookWorm.Button.Primary"
                 android:layout_marginTop="8dp"
                 android:text="@string/btn_create_account" />
-
-            <!-- "or" divider -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                android:layout_marginTop="22dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/color_divider" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:fontFamily="@font/montserrat"
-                    android:text="@string/text_or"
-                    android:textColor="@color/color_grey"
-                    android:textSize="11sp"
-                    android:fontWeight="600" />
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/color_divider" />
-            </LinearLayout>
-
-            <!-- Google sign-in button -->
-            <LinearLayout
-                android:id="@+id/btn_google"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="18dp"
-                android:background="@drawable/bg_google_btn"
-                android:clickable="true"
-                android:focusable="true"
-                android:elevation="2dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:src="@drawable/ic_google"
-                    android:scaleType="fitCenter"
-                    android:contentDescription="@null" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:fontFamily="@font/montserrat"
-                    android:text="@string/btn_sign_in_google"
-                    android:textColor="@color/color_primary_2"
-                    android:textSize="13.5sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
             <!-- Footer hint -->
             <TextView

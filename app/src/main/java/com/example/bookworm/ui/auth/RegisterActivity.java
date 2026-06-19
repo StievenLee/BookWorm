@@ -3,7 +3,6 @@ package com.example.bookworm.ui.auth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.bookworm.R;
@@ -18,7 +17,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         TextView tabLogin = findViewById(R.id.tab_login);
         Button btnRegister = findViewById(R.id.btn_register);
-        LinearLayout btnGoogle = findViewById(R.id.btn_google);
 
         tabLogin.setOnClickListener(v -> {
             startActivity(new Intent(this, LoginActivity.class));
@@ -27,12 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         btnRegister.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-            finish();
-        });
-
-        btnGoogle.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();

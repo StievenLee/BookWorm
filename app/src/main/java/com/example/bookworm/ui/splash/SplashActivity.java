@@ -17,7 +17,8 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SplashScreen.installSplashScreen(this);
+        SplashScreen.installSplashScreen(this)
+                .setOnExitAnimationListener(provider -> provider.remove());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 

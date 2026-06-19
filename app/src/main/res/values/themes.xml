@@ -11,9 +11,10 @@
 
     <style name="Theme.BookWorm" parent="Base.Theme.BookWorm" />
 
-    <!-- Theme khusus SplashActivity: menghilangkan system splash screen Android 12+ -->
+    <!-- Theme khusus SplashActivity: system splash screen tidak terlihat -->
     <style name="Theme.BookWorm.Splash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/color_secondary_2</item>
+        <item name="windowSplashScreenBackground">@color/color_secondary_1</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_transparent</item>
         <item name="postSplashScreenTheme">@style/Theme.BookWorm</item>
     </style>
 
