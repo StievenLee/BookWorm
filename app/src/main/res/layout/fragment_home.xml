@@ -50,7 +50,6 @@
                         android:id="@+id/tv_greeting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/playfair_display"
                         android:text="@string/greeting_hello"
                         android:textColor="@color/color_primary_3"
@@ -76,13 +75,14 @@
                     android:layout_height="@dimen/avatar_size"
                     android:layout_gravity="end"
                     android:background="@drawable/bg_avatar"
-                    android:src="@drawable/ic_account_circle"
-                    android:padding="8dp"
-                    android:scaleType="fitCenter"
-                    android:elevation="4dp"
                     android:clickable="true"
+                    android:contentDescription="@null"
+                    android:elevation="4dp"
                     android:focusable="true"
-                    android:contentDescription="@null" />
+                    android:padding="8dp"
+                    android:layout_margin="4dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_account_circle" />
             </FrameLayout>
 
             <!-- ── Carousel ── -->
@@ -107,12 +107,13 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_chevron_left"
-                    android:tint="@color/color_primary_2"
                     android:background="@drawable/bg_carousel_btn"
                     android:scaleType="center"
                     android:clickable="true"
                     android:focusable="true"
-                    android:contentDescription="@null" />
+                    android:paddingLeft="4dp"
+                    android:contentDescription="@null"
+                    app:tint="@color/color_primary_2" />
 
                 <!-- Dots (built programmatically at runtime; design-time placeholders below) -->
                 <LinearLayout
@@ -152,12 +153,13 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_chevron_right"
-                    android:tint="@color/color_primary_2"
                     android:background="@drawable/bg_carousel_btn"
                     android:scaleType="center"
                     android:clickable="true"
                     android:focusable="true"
-                    android:contentDescription="@null" />
+                    android:paddingLeft="4dp"
+                    android:contentDescription="@null"
+                    app:tint="@color/color_primary_2" />
             </LinearLayout>
 
             <!-- ── Featured Books header ── -->

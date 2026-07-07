@@ -9,35 +9,32 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="40dp"
         android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="44dp">
+            android:orientation="vertical">
 
-            <!-- ── Top meta strip: Published | Pages | Genre (caramel background, chip overlays) ── -->
+            <!-- ── Top meta strip: caramel background extends up behind the status bar;
+                paddingTop pushes the text below the status bar so nothing is clipped ── -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="wrap_content"
                 android:background="@color/color_primary_1"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
+                android:paddingTop="40dp"
+                android:paddingBottom="4dp"
                 android:orientation="horizontal">
 
-                <!-- Published chip -->
+                <!-- Published (Figma: no chip — plain text on caramel, divider between) -->
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="4dp"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:background="@drawable/bg_stat_chip">
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/tv_year"
@@ -55,25 +52,28 @@
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/label_published"
-                        android:textColor="@color/color_secondary_2"
+                        android:textColor="@color/white"
                         android:textSize="10sp"
                         android:textStyle="bold"
                         android:textAllCaps="true"
                         android:letterSpacing="0.1" />
                 </LinearLayout>
 
-                <!-- Pages chip -->
+                <!-- Divider -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    android:alpha="0.4" />
+
+                <!-- Pages -->
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:background="@drawable/bg_stat_chip">
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/tv_pages"
@@ -91,24 +91,28 @@
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/label_pages"
-                        android:textColor="@color/color_secondary_2"
+                        android:textColor="@color/white"
                         android:textSize="10sp"
                         android:textStyle="bold"
                         android:textAllCaps="true"
                         android:letterSpacing="0.1" />
                 </LinearLayout>
 
-                <!-- Genre chip -->
+                <!-- Divider -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    android:alpha="0.4" />
+
+                <!-- Genre -->
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginStart="4dp"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:background="@drawable/bg_stat_chip">
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/tv_genre"
@@ -126,7 +130,7 @@
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/label_genre"
-                        android:textColor="@color/color_secondary_2"
+                        android:textColor="@color/white"
                         android:textSize="10sp"
                         android:textStyle="bold"
                         android:textAllCaps="true"
@@ -153,6 +157,7 @@
                     android:tint="@color/color_primary_3"
                     android:background="@drawable/bg_back_btn"
                     android:scaleType="center"
+                    android:layout_margin="4dp"
                     android:elevation="4dp"
                     android:clickable="true"
                     android:focusable="true"
@@ -166,10 +171,12 @@
                     android:text="@string/label_book_detail"
                     android:textColor="@color/color_primary_2"
                     android:textSize="12sp"
-                    android:fontWeight="500" />
+                    android:textFontWeight="570" />
             </LinearLayout>
 
-            <!-- ── Hero cover (flat cover art, centered) ── -->
+            <!-- ── Hero cover (flat cover art, centered) ──
+                 outlineProvider="bounds" wajib agar elevation benar-benar menggambar
+                 drop shadow (tanpa ini, ImageView adjustViewBounds tak punya outline). -->
             <ImageView
                 android:id="@+id/book_cover"
                 android:layout_width="@dimen/cover_detail_width"
@@ -179,6 +186,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:elevation="8dp"
+                android:outlineProvider="bounds"
                 android:contentDescription="@null"
                 tools:src="@drawable/cover_art_gatsby" />
 
@@ -292,18 +300,19 @@
                     android:gravity="start"
                     tools:text="n my younger and more vulnerable years my father gave me some advice that I have been turning over in my mind ever since." />
 
-                <!-- Drop cap: Figma memakai font dekoratif "Ramsina" 55px (Google Fonts).
-                     marginTop negatif mengompensasi ascender font vs top padding Montserrat;
-                     mungkin perlu disesuaikan saat cek visual dengan Ramsina. -->
+                <!-- Drop cap: Playfair Display (proyek sepakat pakai 2 font saja: Playfair + Montserrat).
+                     marginTop negatif mengangkat glyph agar sisi ATAS huruf rata dengan baris
+                     pertama blurb (Playfair punya ascender/internal leading besar). -->
                 <TextView
                     android:id="@+id/tv_blurb_dropcap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top|start"
-                    android:layout_marginTop="-10dp"
-                    android:fontFamily="@font/ramsina"
+                    android:layout_marginTop="-13dp"
+                    android:fontFamily="@font/playfair_display"
                     android:textColor="@color/white"
-                    android:textSize="55sp"
+                    android:textSize="46sp"
+                    android:textStyle="bold"
                     android:includeFontPadding="false"
                     tools:text="I" />
             </FrameLayout>
@@ -316,6 +325,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/bg_order_card"
                 android:padding="18dp"
                 android:elevation="4dp">
@@ -361,15 +371,15 @@
                             android:fontFamily="@font/montserrat"
                             android:textColor="@color/color_grey"
                             android:textSize="12sp"
-                            android:fontWeight="500"
+                            android:textFontWeight="600"
                             tools:text="Rp 95.000 / book" />
                     </LinearLayout>
 
                     <!-- Minus button -->
                     <ImageView
                         android:id="@+id/btn_qty_minus"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/ic_minus"
                         android:background="@drawable/bg_qty_btn"
                         android:scaleType="center"
@@ -394,8 +404,8 @@
                     <!-- Plus button -->
                     <ImageView
                         android:id="@+id/btn_qty_plus"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/ic_plus"
                         android:background="@drawable/bg_qty_btn"
                         android:scaleType="center"
@@ -411,8 +421,8 @@
                     android:fontFamily="@font/montserrat"
                     android:text="@string/label_delivery_address"
                     android:textColor="@color/color_primary_3"
-                    android:textSize="12sp"
-                    android:fontWeight="500" />
+                    android:textSize="14dp"
+                    android:textFontWeight="600" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_address"
@@ -425,6 +435,7 @@
                         android:id="@+id/et_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input_field"
                         android:fontFamily="@font/montserrat"
                         android:hint="@string/hint_delivery_address"
                         android:imeOptions="actionNext"
@@ -432,22 +443,22 @@
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
                         android:paddingTop="9dp"
-                        android:paddingBottom="9dp"
+                        android:paddingBottom="13dp"
                         android:textColor="@color/color_primary_3"
                         android:textColorHint="@color/color_hint"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Phone number label -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/label_phone_number"
                     android:textColor="@color/color_primary_3"
-                    android:textSize="12sp"
-                    android:fontWeight="500" />
+                    android:textSize="14dp"
+                    android:textFontWeight="600" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_phone"
@@ -460,6 +471,7 @@
                         android:id="@+id/et_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input_field"
                         android:fontFamily="@font/montserrat"
                         android:hint="@string/hint_phone_number"
                         android:imeOptions="actionDone"
@@ -467,7 +479,7 @@
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
                         android:paddingTop="9dp"
-                        android:paddingBottom="9dp"
+                        android:paddingBottom="13dp"
                         android:textColor="@color/color_primary_3"
                         android:textColorHint="@color/color_hint"
                         android:textSize="14sp" />
@@ -479,7 +491,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp">
 
                     <TextView
@@ -489,8 +500,8 @@
                         android:fontFamily="@font/montserrat"
                         android:text="@string/label_total"
                         android:textColor="@color/color_primary_3"
-                        android:textSize="12sp"
-                        android:fontWeight="500" />
+                        android:textSize="14dp"
+                        android:textFontWeight="600" />
 
                     <!-- Figma: Total price Montserrat Bold 12sp, Primary 3 -->
                     <TextView
@@ -499,7 +510,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
                         android:textColor="@color/color_primary_3"
-                        android:textSize="12sp"
+                        android:textSize="14dp"
                         android:textStyle="bold"
                         tools:text="Rp 95.000" />
                 </LinearLayout>
@@ -508,8 +519,9 @@
                 <Button
                     android:id="@+id/btn_buy"
                     style="@style/Widget.BookWorm.Button.Primary"
-                    android:layout_height="34dp"
-                    android:textSize="12sp"
+                    android:layout_height="38dp"
+                    android:layout_marginBottom="6dp"
+                    android:textSize="14sp"
                     android:text="@string/btn_buy_now" />
             </LinearLayout>
 

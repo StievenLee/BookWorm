@@ -97,12 +97,17 @@
     </style>
 
     <!-- ── TextInputLayout component ── -->
+    <!-- Field ala Figma: kotak putih tanpa border (stroke transparan), sudut membulat.
+         Shadow diberikan lewat android:elevation pada TextInputLayout di layout. -->
     <style name="Widget.BookWorm.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
         <item name="boxCornerRadiusTopStart">@dimen/input_corner_radius</item>
         <item name="boxCornerRadiusTopEnd">@dimen/input_corner_radius</item>
         <item name="boxCornerRadiusBottomStart">@dimen/input_corner_radius</item>
         <item name="boxCornerRadiusBottomEnd">@dimen/input_corner_radius</item>
         <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
         <item name="hintEnabled">false</item>
         <item name="errorEnabled">true</item>
         <item name="errorIconDrawable">@null</item>

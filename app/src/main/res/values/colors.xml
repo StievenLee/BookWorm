@@ -22,7 +22,6 @@
     <!-- Figma palette steps -->
     <color name="color_primary_2_80">#9F6F53</color>   <!-- Primary 2 - 80 (Figma) -->
     <!-- Derived alpha tokens (Primary 2 with opacity) -->
-    <color name="color_primary_2_65">#A68D5B3D</color> <!-- Primary 2 at 65% — stat chip -->
     <color name="color_primary_2_40">#668D5B3D</color> <!-- Primary 2 at 40% — qty btn stroke -->
     <!-- Semi-transparent design tokens -->
     <color name="color_separator">#14553522</color>    <!-- popup menu separator -->
