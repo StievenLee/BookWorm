@@ -110,7 +110,7 @@ public class BooksFragment extends Fragment {
     private void setupBookGrid(View root) {
         RecyclerView rv = root.findViewById(R.id.rv_books);
         rv.setLayoutManager(new GridLayoutManager(requireContext(), 2));
-        bookAdapter = new BookAdapter(currentList, true);
+        bookAdapter = new BookAdapter(currentList, false);
         bookAdapter.setOnBookClickListener(book -> {
             Intent intent = new Intent(requireContext(), BookDetailActivity.class);
             intent.putExtra("book_id", book.getId());

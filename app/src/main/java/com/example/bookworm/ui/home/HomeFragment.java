@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,8 +75,8 @@ public class HomeFragment extends Fragment {
         vpCarousel = root.findViewById(R.id.vp_carousel);
         llDots     = root.findViewById(R.id.ll_dots);
 
-        actualCount = Catalogue.STORES.size();
-        CarouselAdapter adapter = new CarouselAdapter(Catalogue.STORES);
+        actualCount = Catalogue.CAROUSEL_IMAGES.size();
+        CarouselAdapter adapter = new CarouselAdapter(Catalogue.CAROUSEL_IMAGES);
         adapter.setOnSlideClickListener(() ->
                 ((MainActivity) requireActivity()).switchToTab(NavbarView.SLOT_STORES));
 
@@ -97,12 +98,14 @@ public class HomeFragment extends Fragment {
 
     private void buildDots(int activeIndex) {
         llDots.removeAllViews();
-        int dpActive = dp(20), dpInactive = dp(8), height = dp(8), gap = dp(7);
+        // Figma 755:622 dots: active circle r=4.5 (9dp), inactive circle r=3 (6dp), 7dp gap
+        int dpActive = dp(9), dpInactive = dp(6), gap = dp(7);
         for (int i = 0; i < actualCount; i++) {
             View dot = new View(requireContext());
             boolean active = i == activeIndex;
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                    active ? dpActive : dpInactive, height);
+            int size = active ? dpActive : dpInactive;
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
+            lp.gravity = Gravity.CENTER_VERTICAL;
             if (i > 0) lp.leftMargin = gap;
             dot.setLayoutParams(lp);
             dot.setBackgroundResource(active ? R.drawable.bg_dot_active : R.drawable.bg_dot_inactive);

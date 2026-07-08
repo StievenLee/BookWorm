@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Purchase text field ala Figma (840:731): kotak putih radius ~5.33dp dengan drop
+     shadow 0 3px blur~2.2, rgba(0,0,0,0.25). Shadow disimulasikan sebagai beberapa
+     lapis gelap makin transparan di bawah kotak putih. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Shadow layers: paling luar/samar → paling dalam/pekat -->
+    <item android:top="5dp" android:left="1dp" android:right="1dp" android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#18000000" />
+            <corners android:radius="@dimen/input_corner_radius_purchase" />
+        </shape>
+    </item>
+    <item android:top="4dp" android:left="0dp" android:right="0dp" android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#40000000" />
+            <corners android:radius="@dimen/input_corner_radius_purchase" />
+        </shape>
+    </item>
+
+    <!-- Kotak putih -->
+    <item android:bottom="5dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <corners android:radius="@dimen/input_corner_radius_purchase" />
+        </shape>
+    </item>
+</layer-list>

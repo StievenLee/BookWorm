@@ -3,7 +3,6 @@ package com.example.bookworm.ui.home;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,9 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.core.widget.NestedScrollView;
 import com.example.bookworm.R;
 import com.example.bookworm.data.Catalogue;
 import com.example.bookworm.model.Book;
@@ -35,7 +31,6 @@ public class BookDetailActivity extends AppCompatActivity {
     private TextView tvQty, tvTotal, tvPriceEach;
     private TextInputLayout tilAddress, tilPhone;
     private TextInputEditText etAddress, etPhone;
-    private NestedScrollView nsvBookDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +45,9 @@ public class BookDetailActivity extends AppCompatActivity {
         tilPhone   = findViewById(R.id.til_phone);
         etAddress  = findViewById(R.id.et_address);
         etPhone    = findViewById(R.id.et_phone);
-        nsvBookDetail = findViewById(R.id.nsv_book_detail);
 
         etAddress.addTextChangedListener(clearErrorOn(tilAddress));
         etPhone.addTextChangedListener(clearErrorOn(tilPhone));
-        setupImeInsetsPadding();
 
         bindBook();
         setupQtyControls();
@@ -180,31 +173,6 @@ public class BookDetailActivity extends AppCompatActivity {
         return e != null ? e.toString().trim() : "";
     }
 
-    // On targetSdk 35+ the system enforces edge-to-edge, so adjustResize no longer
-    // shrinks the window when the IME appears — the keyboard just draws on top.
-    // Handle it manually: on each IME inset change, pad the scroll view's bottom by
-    // the keyboard height (so there's room to scroll past it) and, while the
-    // keyboard is showing, ask the currently focused field to scroll just enough to
-    // be visible. requestChildRectangleOnScreen moves the field the minimum needed —
-    // it lands right above the keyboard, never over-scrolled or jumped to the top.
-    private void setupImeInsetsPadding() {
-        if (nsvBookDetail == null) return;
-        int basePaddingBottom = nsvBookDetail.getPaddingBottom();
-        ViewCompat.setOnApplyWindowInsetsListener(
-                findViewById(android.R.id.content), (v, insets) -> {
-            int imeBottom = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-            nsvBookDetail.setPadding(nsvBookDetail.getPaddingLeft(), nsvBookDetail.getPaddingTop(),
-                    nsvBookDetail.getPaddingRight(), basePaddingBottom + imeBottom);
-            if (imeBottom > 0) {
-                View focused = getCurrentFocus();
-                if (focused != null) {
-                    focused.post(() -> focused.requestRectangleOnScreen(
-                            new Rect(0, 0, focused.getWidth(), focused.getHeight()), false));
-                }
-            }
-            return insets;
-        });
-    }
 
     private static TextWatcher clearErrorOn(TextInputLayout til) {
         return new TextWatcher() {

@@ -4,6 +4,7 @@
     <dimen name="margin_auth_form">33dp</dimen>
     <dimen name="input_height">46dp</dimen>
     <dimen name="input_corner_radius">7dp</dimen>
+    <dimen name="input_corner_radius_purchase">5dp</dimen>
     <dimen name="button_primary_height">48dp</dimen>
     <dimen name="button_primary_corner">7dp</dimen>
     <dimen name="button_splash_corner">10dp</dimen>

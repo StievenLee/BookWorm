@@ -73,7 +73,7 @@
                     android:id="@+id/iv_avatar"
                     android:layout_width="@dimen/avatar_size"
                     android:layout_height="@dimen/avatar_size"
-                    android:layout_gravity="end"
+                    android:layout_gravity="end|center_vertical"
                     android:background="@drawable/bg_avatar"
                     android:clickable="true"
                     android:contentDescription="@null"
@@ -85,81 +85,81 @@
                     android:src="@drawable/ic_account_circle" />
             </FrameLayout>
 
-            <!-- ── Carousel ── -->
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_carousel"
+            <!-- ── Carousel ── (Figma 755:622: arrows overlaid inside card, 8dp from edges, vertically centered) -->
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/carousel_height"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="22dp" />
+                android:layout_marginTop="22dp">
 
-            <!-- ── Dots + prev/next ── -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_carousel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
                 <ImageView
                     android:id="@+id/btn_carousel_prev"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="8dp"
                     android:src="@drawable/ic_chevron_left"
                     android:background="@drawable/bg_carousel_btn"
                     android:scaleType="center"
                     android:clickable="true"
                     android:focusable="true"
-                    android:paddingLeft="4dp"
+                    android:elevation="2dp"
                     android:contentDescription="@null"
-                    app:tint="@color/color_primary_2" />
-
-                <!-- Dots (built programmatically at runtime; design-time placeholders below) -->
-                <LinearLayout
-                    android:id="@+id/ll_dots"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginEnd="14dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <!-- Design-time dot placeholders (runtime: removeAllViews() clears these) -->
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="8dp"
-                        android:background="@drawable/bg_dot_active"
-                        android:visibility="gone"
-                        tools:visibility="visible" />
-                    <View
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:layout_marginStart="7dp"
-                        android:background="@drawable/bg_dot_inactive"
-                        android:visibility="gone"
-                        tools:visibility="visible" />
-                    <View
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:layout_marginStart="7dp"
-                        android:background="@drawable/bg_dot_inactive"
-                        android:visibility="gone"
-                        tools:visibility="visible" />
-                </LinearLayout>
+                    app:tint="@color/white" />
 
                 <ImageView
                     android:id="@+id/btn_carousel_next"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="8dp"
                     android:src="@drawable/ic_chevron_right"
                     android:background="@drawable/bg_carousel_btn"
                     android:scaleType="center"
                     android:clickable="true"
                     android:focusable="true"
-                    android:paddingLeft="4dp"
+                    android:elevation="2dp"
                     android:contentDescription="@null"
-                    app:tint="@color/color_primary_2" />
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <!-- ── Dots ── (Figma: centered below card, 8dp gap) -->
+            <LinearLayout
+                android:id="@+id/ll_dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Design-time dot placeholders (runtime: removeAllViews() clears these) -->
+                <View
+                    android:layout_width="9dp"
+                    android:layout_height="9dp"
+                    android:background="@drawable/bg_dot_active"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/bg_dot_inactive"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/bg_dot_inactive"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <!-- ── Featured Books header ── -->

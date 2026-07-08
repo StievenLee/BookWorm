@@ -48,7 +48,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/playfair_display"
                         android:text="@string/title_our_stores"
                         android:textColor="@color/color_primary_3"
@@ -70,7 +69,7 @@
                     android:id="@+id/iv_avatar"
                     android:layout_width="@dimen/avatar_size"
                     android:layout_height="@dimen/avatar_size"
-                    android:layout_gravity="end"
+                    android:layout_gravity="end|center_vertical"
                     android:background="@drawable/bg_avatar"
                     android:src="@drawable/ic_account_circle"
                     android:padding="8dp"

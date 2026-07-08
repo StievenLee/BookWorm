@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Input field ala Figma: kotak putih dengan drop shadow (0 4px, ~25% black).
-     Shadow digambar sebagai beberapa lapis gelap makin transparan (efek blur lembut),
-     di bawah kotak putih — tidak bergantung pada android:elevation/clipping. -->
+<!-- Auth text field ala Figma (675:641): kotak putih radius 7dp dengan drop shadow
+     0 4px blur~3, rgba(0,0,0,0.25). Shadow disimulasikan sebagai beberapa lapis
+     gelap makin transparan (efek blur lembut) di bawah kotak putih — tidak
+     bergantung pada android:elevation/clipping. -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Shadow layers (paling luar & samar → paling dalam & pekat) -->
-    <item android:top="4dp" android:left="1dp" android:right="1dp">
+    <!-- Shadow layers: paling luar/samar → paling dalam/pekat, offset ke bawah -->
+    <item android:top="6dp" android:left="2dp" android:right="2dp" android:bottom="0dp">
         <shape android:shape="rectangle">
-            <solid android:color="#10000000" />
+            <solid android:color="#14000000" />
             <corners android:radius="@dimen/input_corner_radius" />
         </shape>
     </item>
-    <item android:top="4dp" android:left="0dp" android:right="0dp" android:bottom="-1dp">
+    <item android:top="5dp" android:left="1dp" android:right="1dp" android:bottom="1dp">
         <shape android:shape="rectangle">
-            <solid android:color="#18000000" />
+            <solid android:color="#26000000" />
+            <corners android:radius="@dimen/input_corner_radius" />
+        </shape>
+    </item>
+    <item android:top="4dp" android:left="0dp" android:right="0dp" android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#40000000" />
             <corners android:radius="@dimen/input_corner_radius" />
         </shape>
     </item>
 
     <!-- Kotak putih -->
-    <item android:bottom="4dp">
+    <item android:bottom="6dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/white" />
             <corners android:radius="@dimen/input_corner_radius" />

@@ -6,56 +6,60 @@
     android:layout_height="match_parent"
     android:background="@color/color_secondary_2">
 
-    <!-- Peach oval shadow: fades in first, absorbed as logo lands -->
+    <!-- Peach oval shadow: fades in first, absorbed as logo lands (Figma: landing-spot hint) -->
     <View
-        android:id="@+id/view_shadow" 
+        android:id="@+id/view_shadow"
         android:layout_width="130dp"
         android:layout_height="22dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="392dp"
         android:background="@drawable/bg_splash_shadow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Bookworm mascot logo: centered horizontally, 117dp from top -->
-
-    <!-- Tagline text: 253dp wide, centered, at ~424dp from top -->
+    <!-- Bookworm mascot logo — Figma 707:845: 115×108dp, centered, top ~290dp -->
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="159dp"
-        android:layout_height="378dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="115dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="290dp"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_bookworm_logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_splash_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- GET STARTED button: 104dp wide, centered, at ~500dp from top -->
-
-    <TextView
-        android:id="@+id/tv_tagline"
-        android:layout_width="273dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="380dp"
-        android:fontFamily="@font/playfair_display"
-        android:gravity="center"
-        android:text="@string/tagline"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
+    <!-- Text + button group — Figma 707:846: centered, top 431dp, w 275dp, gap 20dp -->
+    <LinearLayout
+        android:id="@+id/group_cta"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="431dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btn_get_started"
-        style="@style/Widget.BookWorm.Button.Splash"
-        android:layout_marginTop="476dp"
-        android:text="@string/btn_get_started"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- Tagline — Figma 707:847: Playfair Display Bold 16sp, black, center -->
+        <TextView
+            android:id="@+id/tv_tagline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/playfair_display"
+            android:gravity="center"
+            android:text="@string/tagline"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- GET STARTED — Figma 707:1053: Primary 2, radius 10dp, Montserrat Bold 14sp white -->
+        <Button
+            android:id="@+id/btn_get_started"
+            style="@style/Widget.BookWorm.Button.Splash"
+            android:layout_marginTop="20dp"
+            android:text="@string/btn_get_started" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

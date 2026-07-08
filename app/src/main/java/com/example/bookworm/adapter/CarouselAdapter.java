@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.bookworm.R;
-import com.example.bookworm.model.Store;
 import java.util.List;
 
 public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder> {
@@ -20,11 +19,11 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
     // Large multiplier enables seamless infinite scrolling without visible boundaries
     public static final int LOOP_FACTOR = 10_000;
 
-    private final List<Store> stores;
+    private final List<Integer> imageResIds;
     private OnSlideClickListener listener;
 
-    public CarouselAdapter(List<Store> stores) {
-        this.stores = stores;
+    public CarouselAdapter(List<Integer> imageResIds) {
+        this.imageResIds = imageResIds;
     }
 
     public void setOnSlideClickListener(OnSlideClickListener l) {
@@ -32,7 +31,7 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
     }
 
     public int getActualCount() {
-        return stores.size();
+        return imageResIds.size();
     }
 
     @NonNull
@@ -45,10 +44,10 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
 
     @Override
     public void onBindViewHolder(@NonNull CarouselViewHolder h, int position) {
-        Store store = stores.get(position % stores.size());
+        int imageResId = imageResIds.get(position % imageResIds.size());
 
         Glide.with(h.ivSlide.getContext())
-                .load(store.getImageResId())
+                .load(imageResId)
                 .centerCrop()
                 .into(h.ivSlide);
 
@@ -59,7 +58,7 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
 
     @Override
     public int getItemCount() {
-        return stores.isEmpty() ? 0 : stores.size() * LOOP_FACTOR;
+        return imageResIds.isEmpty() ? 0 : imageResIds.size() * LOOP_FACTOR;
     }
 
     static class CarouselViewHolder extends RecyclerView.ViewHolder {

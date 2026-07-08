@@ -16,6 +16,8 @@
     <color name="color_store_card_bg">#E6E6E6</color>  <!-- Figma Neutral - 10, store card background -->
     <color name="color_hint">#3B000000</color>
     <color name="color_placeholder">#C4C4C4</color> <!-- Figma field placeholder -->
+    <color name="color_placeholder_auth">#3B000000</color> <!-- Figma auth field placeholder rgba(0,0,0,0.23) -->
+    <color name="color_placeholder_purchase">#C6C6C6</color> <!-- Figma purchase field placeholder Neutral-20 -->
     <!-- Divider / border alphas -->
     <color name="color_divider">#24553522</color>    <!-- rgba(85,53,34,.14) -->
     <color name="color_border">#29553522</color>     <!-- rgba(85,53,34,.16) -->

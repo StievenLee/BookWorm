@@ -436,8 +436,9 @@
                         android:id="@+id/et_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_input_field"
+                        android:background="@drawable/bg_input_field_purchase"
                         android:fontFamily="@font/montserrat"
+                        android:textFontWeight="500"
                         android:hint="@string/hint_delivery_address"
                         android:imeOptions="actionNext"
                         android:inputType="textPostalAddress"
@@ -446,8 +447,8 @@
                         android:paddingTop="9dp"
                         android:paddingBottom="13dp"
                         android:textColor="@color/color_primary_3"
-                        android:textColorHint="@color/color_hint"
-                        android:textSize="14sp"
+                        android:textColorHint="@color/color_placeholder_purchase"
+                        android:textSize="12sp"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -472,8 +473,9 @@
                         android:id="@+id/et_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_input_field"
+                        android:background="@drawable/bg_input_field_purchase"
                         android:fontFamily="@font/montserrat"
+                        android:textFontWeight="500"
                         android:hint="@string/hint_phone_number"
                         android:imeOptions="actionDone"
                         android:inputType="phone"
@@ -482,8 +484,8 @@
                         android:paddingTop="9dp"
                         android:paddingBottom="13dp"
                         android:textColor="@color/color_primary_3"
-                        android:textColorHint="@color/color_hint"
-                        android:textSize="14sp" />
+                        android:textColorHint="@color/color_placeholder_purchase"
+                        android:textSize="12sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Total row -->

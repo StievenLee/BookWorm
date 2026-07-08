@@ -66,6 +66,17 @@ public class Catalogue {
             "Surabaya",  "Jl. Tunjungan No. 31, Surabaya",     "+62 856 4455 6677", "09.00 – 21.00")
     );
 
+    // Home carousel shows 5 slides in Figma order (Carousel component 753:638,
+    // Image=1..5): Ivory Tower Books, Alexandria Branch, The Golden Leaf,
+    // The Serpent's Archive, Plato's Atheneum. Separate from the 4-item STORES list.
+    public static final List<Integer> CAROUSEL_IMAGES = Arrays.asList(
+        R.drawable.carousel_slide_1,
+        R.drawable.carousel_slide_2,
+        R.drawable.carousel_slide_3,
+        R.drawable.carousel_slide_4,
+        R.drawable.carousel_slide_5
+    );
+
     public static Book findById(String id) {
         for (Book b : BOOKS) {
             if (b.getId().equals(id)) return b;

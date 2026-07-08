@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Figma "shade": transparent → rgba(0,0,0,0.35) top-to-bottom -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <gradient
         android:type="linear"
         android:angle="270"
         android:startColor="#00000000"
-        android:endColor="#8C14080A" />
+        android:endColor="#59000000" />
 </shape>

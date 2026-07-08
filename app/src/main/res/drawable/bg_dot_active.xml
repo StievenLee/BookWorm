@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Figma carousel dot (active): filled Primary 2 circle, r=4.5 (9dp) -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
+    android:shape="oval">
     <solid android:color="@color/color_primary_2" />
-    <corners android:radius="8dp" />
 </shape>
