@@ -13,7 +13,9 @@
     <color name="color_surface">#FFFFFF</color>       <!-- surface / card -->
     <color name="color_grey">#7A7979</color>          <!-- Figma Black - 60 (text secondary) -->
     <color name="color_error">#B76464</color>         <!-- error -->
+    <color name="color_store_card_bg">#E6E6E6</color>  <!-- Figma Neutral - 10, store card background -->
     <color name="color_hint">#3B000000</color>
+    <color name="color_placeholder">#C4C4C4</color> <!-- Figma field placeholder -->
     <!-- Divider / border alphas -->
     <color name="color_divider">#24553522</color>    <!-- rgba(85,53,34,.14) -->
     <color name="color_border">#29553522</color>     <!-- rgba(85,53,34,.16) -->

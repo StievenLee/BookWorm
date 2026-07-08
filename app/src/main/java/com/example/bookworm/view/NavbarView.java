@@ -21,12 +21,17 @@ public class NavbarView extends View {
     public static final int SLOT_STORES = 2;
     public static final int SLOT_LOGOUT = 3;
 
-    // Slot center X positions in dp (from Figma)
-    private static final float[] SLOT_DP = { 50f, 140f, 230f, 320f };
+    // Slot center X as a fraction of the bar width. The Figma navbar's icon centers
+    // (33.12/76.12/118.07/164.12px of 188.785px) are unevenly spaced — the last gap
+    // is ~10% wider than the other two — which reads as a lopsided gap on-screen.
+    // Instead, split the bar into 4 equal columns (1/8, 3/8, 5/8, 7/8) so all four
+    // slots — including the edge margins — are evenly and symmetrically spaced.
+    private static final float[] SLOT_FRACTION = { 1f / 8f, 3f / 8f, 5f / 8f, 7f / 8f };
 
     private final float density;
     private int   activeSlot = SLOT_HOME;
-    private float bubbleDp   = SLOT_DP[SLOT_HOME];
+    private float bubbleDp   = 0f;
+    private float barWidthDp = 393f;
 
     private final Paint barPaint    = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint bubblePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -58,13 +63,13 @@ public class NavbarView extends View {
 
     public void setSlot(int slot) {
         activeSlot = slot;
-        bubbleDp   = SLOT_DP[slot];
+        bubbleDp   = slotDp(slot);
         invalidate();
     }
 
     public void animateToSlot(int slot) {
         if (slot == activeSlot) return;
-        float from = bubbleDp, to = SLOT_DP[slot];
+        float from = bubbleDp, to = slotDp(slot);
         activeSlot = slot;
         ValueAnimator va = ValueAnimator.ofFloat(from, to);
         va.setDuration(320);
@@ -73,9 +78,22 @@ public class NavbarView extends View {
         va.start();
     }
 
+    // Slot center X in dp, proportional to the bar's actual measured width.
+    private float slotDp(int slot) { return SLOT_FRACTION[slot] * barWidthDp; }
+
     @Override
     protected void onMeasure(int ws, int hs) {
         setMeasuredDimension(MeasureSpec.getSize(ws), (int)(92 * density));
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        float newBarWidthDp = w / density;
+        if (newBarWidthDp > 0) {
+            barWidthDp = newBarWidthDp;
+            bubbleDp   = slotDp(activeSlot);
+        }
     }
 
     @Override
@@ -94,11 +112,16 @@ public class NavbarView extends View {
         for (int i = 0; i < 4; i++) {
             if (icons[i] == null) continue;
             boolean active = (i == activeSlot);
-            float icx = active ? cx : SLOT_DP[i] * d;
+            float icx = active ? cx : slotDp(i) * d;
             float icy = active ? 10f * d : 33f * d;
+            // Logout icon has a larger intrinsic viewport (28.79 vs 24) than the
+            // other three — shrink its drawn bounds slightly so it renders at the
+            // same visual size as the rest, matching the Figma navbar.
+            float half = (i == SLOT_LOGOUT) ? 10f * d : 12f * d;
+            float iconTop = icy + (12f * d - half);
             icons[i].setTint(active ? 0xFFFFF8F0 : 0xFF553522);
-            icons[i].setBounds((int)(icx - 12*d), (int)icy,
-                               (int)(icx + 12*d), (int)(icy + 24*d));
+            icons[i].setBounds((int)(icx - half), (int)iconTop,
+                               (int)(icx + half), (int)(iconTop + half*2));
             icons[i].draw(canvas);
         }
     }
@@ -146,7 +169,7 @@ public class NavbarView extends View {
             int nearest = 0;
             float minDist = Float.MAX_VALUE;
             for (int i = 0; i < 4; i++) {
-                float dist = Math.abs(xDp - SLOT_DP[i]);
+                float dist = Math.abs(xDp - slotDp(i));
                 if (dist < minDist) { minDist = dist; nearest = i; }
             }
             if (listener != null) { listener.onTabClick(nearest); return true; }

@@ -191,17 +191,19 @@
                     android:id="@+id/et_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_field"
                     android:fontFamily="@font/montserrat"
                     android:hint="@string/hint_username"
                     android:imeOptions="actionNext"
                     android:inputType="textPersonName"
-                    android:paddingStart="18dp"
-                    android:paddingEnd="18dp"
-                    android:paddingTop="13dp"
-                    android:paddingBottom="13dp"
-                    android:textColor="@color/color_primary_2"
-                    android:textColorHint="@color/color_hint"
-                    android:textSize="16sp" />
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/color_placeholder"
+                    android:textSize="16sp"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password label -->
@@ -226,16 +228,17 @@
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_field"
                     android:fontFamily="@font/montserrat"
                     android:hint="@string/hint_password"
                     android:imeOptions="actionDone"
                     android:inputType="textPassword"
-                    android:paddingStart="18dp"
-                    android:paddingEnd="18dp"
-                    android:paddingTop="13dp"
-                    android:paddingBottom="13dp"
-                    android:textColor="@color/color_primary_2"
-                    android:textColorHint="@color/color_hint"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/color_placeholder"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 

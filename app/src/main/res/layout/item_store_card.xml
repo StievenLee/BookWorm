@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -58,22 +59,22 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_nav_pin"
-                android:tint="@color/color_primary_1"
                 android:scaleType="fitCenter"
-                android:contentDescription="@null" />
+                android:contentDescription="@null"
+                app:tint="@color/color_primary_3" />
 
             <TextView
                 android:id="@+id/tv_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="4dp"
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/color_primary_3"
                 android:textSize="12sp"
-                android:fontWeight="500"
+                android:textFontWeight="550"
                 android:maxLines="2"
                 tools:text="Jl. Braga No. 18, Bandung" />
         </LinearLayout>
@@ -87,22 +88,22 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_phone"
-                android:tint="@color/color_primary_1"
                 android:scaleType="fitCenter"
-                android:contentDescription="@null" />
+                android:contentDescription="@null"
+                app:tint="@color/color_primary_3" />
 
             <TextView
                 android:id="@+id/tv_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="4dp"
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/color_primary_3"
                 android:textSize="12sp"
-                android:fontWeight="500"
+                android:textFontWeight="550"
                 tools:text="+62 812 3344 5566" />
         </LinearLayout>
 
@@ -115,10 +116,10 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_clock"
-                android:tint="@color/color_primary_1"
+                android:tint="@color/color_primary_3"
                 android:scaleType="fitCenter"
                 android:contentDescription="@null" />
 
@@ -126,11 +127,11 @@
                 android:id="@+id/tv_hours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="4dp"
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/color_primary_3"
                 android:textSize="12sp"
-                android:fontWeight="500"
+                android:textFontWeight="550"
                 tools:text="09:00 – 21:00" />
         </LinearLayout>
     </LinearLayout>
