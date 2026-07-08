@@ -22,7 +22,7 @@
     <string name="footer_tap_login">Tap LOGIN to enter the library</string>
 
     <!-- Register -->
-    <string name="subtitle_join_library">Let's Read Together !</string>
+    <string name="subtitle_join_library">Let\'s Read Together !</string>
     <string name="label_full_name">Full Name</string>
     <string name="label_email">Email</string>
     <string name="label_confirm_password">Confirm password</string>
