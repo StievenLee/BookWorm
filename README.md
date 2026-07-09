@@ -174,7 +174,7 @@ Semua data bersifat statis dan disimpan di `Catalogue.java`. Tidak ada database 
 
 | Judul | Penulis | Kategori | Harga |
 |---|---|---|---|
-| Meditations | Marcus Aurelius | Non-Fiction | Rp 95.000 |
+| Meditations | Marcus Aurelius | Non-Fiction | Rp 91.000 |
 | The Republic | Plato | Non-Fiction | Rp 110.000 |
 | Walden | Henry David Thoreau | Non-Fiction | Rp 89.000 |
 | Letters from a Stoic | Seneca | Non-Fiction | Rp 92.000 |
@@ -183,14 +183,17 @@ Semua data bersifat statis dan disimpan di `Catalogue.java`. Tidak ada database 
 | Jane Eyre | Charlotte Brontë | Fiction | Rp 115.000 |
 | Moby-Dick | Herman Melville | Fiction | Rp 129.000 |
 
-### Toko Fisik (4 lokasi)
+### Toko Fisik (5 lokasi)
 
-| Nama Toko | Kota |
-|---|---|
-| Ivory Tower Books | Bandung |
-| Plato's Atheneum | Yogyakarta |
-| The Serpent's Archive | Jakarta |
-| Alexandria Branch | Surabaya |
+Urutan dan data mengikuti Figma Stores Page. Setiap toko memakai foto `store_1`–`store_5` secara satu lawan satu.
+
+| Nama Toko | Kota | Alamat | Telepon | Jam |
+|---|---|---|---|---|
+| Ivory Tower Books | Bandung | Jl. Braga No. 18, Bandung | +62 812 3344 5566 | 09.00 – 21.00 |
+| Alexandria Branch | Jakarta | Jl. Kemang No. 7, Jakarta | +62 812 3212 7676 | 08.00 – 20.00 |
+| The Golden Leaf | Yogyakarta | Jl. Malioboro Jogja | +62 812 6767 3366 | 09.30 – 21.30 |
+| The Serpent's Archive | Surabaya | Jl. Tunjungan, Surabaya | +62 856 4455 6677 | 09.00 – 21.00 |
+| Plato's Atheneum | Semarang | Jl. Pemuda, Semarang | +62 813 5566 7788 | 09.00 – 21.00 |
 
 ---
 
@@ -202,7 +205,7 @@ Semua data bersifat statis dan disimpan di `Catalogue.java`. Tidak ada database 
 | `ic_` | Ikon vektor (XML) |
 | `img_` | Ilustrasi / gambar dekoratif |
 | `cover_art_` | Gambar cover buku 3D (PNG, `drawable-nodpi`) |
-| `store_` | Foto toko (PNG, `drawable-nodpi`) |
+| `store_` | Foto toko (JPEG, `drawable-nodpi`) |
 | `color_primary_1/2/3` | Palet warna utama di `colors.xml` |
 
 **Font:**
