@@ -17,15 +17,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- ── Top meta strip: caramel background extends up behind the status bar;
-                paddingTop pushes the text below the status bar so nothing is clipped ── -->
+            <!-- ── Top meta strip: caramel background extends up behind the status bar.
+                paddingTop is applied at runtime = base gap + real status-bar inset
+                (see BookDetailActivity.applyStatusBarInset) so the text always clears
+                the status bar / camera cutout on every device. ── -->
             <LinearLayout
+                android:id="@+id/meta_strip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/color_primary_1"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:paddingTop="40dp"
+                android:paddingTop="8dp"
                 android:paddingBottom="4dp"
                 android:orientation="horizontal">
 

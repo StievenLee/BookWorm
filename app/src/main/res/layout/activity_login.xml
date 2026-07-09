@@ -202,7 +202,7 @@
                     android:paddingTop="0dp"
                     android:paddingBottom="4dp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/color_placeholder_auth"
+                    android:textColorHint="@color/color_placeholder"
                     android:textSize="16sp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -240,7 +240,7 @@
                     android:paddingTop="0dp"
                     android:paddingBottom="4dp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/color_placeholder_auth"
+                    android:textColorHint="@color/color_placeholder"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -113,12 +113,17 @@ public class NavbarView extends View {
             if (icons[i] == null) continue;
             boolean active = (i == activeSlot);
             float icx = active ? cx : slotDp(i) * d;
-            float icy = active ? 10f * d : 33f * d;
-            // Logout icon has a larger intrinsic viewport (28.79 vs 24) than the
-            // other three — shrink its drawn bounds slightly so it renders at the
-            // same visual size as the rest, matching the Figma navbar.
-            float half = (i == SLOT_LOGOUT) ? 10f * d : 12f * d;
-            float iconTop = icy + (12f * d - half);
+            // Vertical center: active icon on the bubble center (24.5dp),
+            // inactive icons on the bar body (45dp).
+            float icyCenter = active ? 24.5f * d : 45f * d;
+            // Figma navbar (node 205:563): icon glyphs are 17.293px on a 188.785px
+            // bar; on-device the bar spans the full 393dp width, a ~2.082x scale, so
+            // the icons render at 17.293 * (393/188.785) ≈ 36dp (half = 18dp).
+            // Logout has a larger intrinsic viewport (28.79 vs 24) than the other
+            // three — shrink its drawn bounds ~15% so it reads at the same visual
+            // size as the rest, matching the Figma navbar.
+            float half = (i == SLOT_LOGOUT) ? 15f * d : 18f * d;
+            float iconTop = icyCenter - half;
             icons[i].setTint(active ? 0xFFFFF8F0 : 0xFF553522);
             icons[i].setBounds((int)(icx - half), (int)iconTop,
                                (int)(icx + half), (int)(iconTop + half*2));

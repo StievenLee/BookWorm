@@ -20,7 +20,7 @@ Aplikasi Android untuk pecinta buku yang menghadirkan pengalaman belanja buku kl
 
 | Home | Books | Stores |
 |:---:|:---:|:---:|
-| ![Home](screenshots/home_page.jpeg) | ![Books](screenshots/books_page.jpeg) | ![Stores](screenshots/stores_page.jpeg) |
+| ![Home](screenshots/home_page.png) | ![Books](screenshots/books_page.png) | ![Stores](screenshots/stores_page.png) |
 
 ---
 

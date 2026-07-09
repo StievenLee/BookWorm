@@ -15,9 +15,6 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String VALID_USERNAME = "jessiela";
-    private static final String VALID_PASSWORD = "j3ss1311";
-
     private TextInputLayout tilUsername, tilPassword;
     private TextInputEditText etUsername, etPassword;
 
@@ -65,12 +62,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (hasError) return;
-
-        if (!username.equals(VALID_USERNAME) || !password.equals(VALID_PASSWORD)) {
-            tilUsername.setError("Invalid username or password.");
-            tilPassword.setError("Invalid username or password.");
-            return;
-        }
 
         UserSession.username = username;
         startActivity(new Intent(this, MainActivity.class));

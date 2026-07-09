@@ -55,15 +55,19 @@ public class Catalogue {
 
     public static final List<String> FEATURED_IDS = Arrays.asList("pride", "meditations", "gatsby", "republic");
 
+    // Order, data & image mapping match the updated Figma Stores Page (456:509, Store 1..5).
+    // Each store uses its matching store_N photo (straight 1-to-1).
     public static final List<Store> STORES = Arrays.asList(
-        new Store("ivory-tower", "Ivory Tower Books",   R.drawable.store_1,
-            "Bandung",   "Jl. Braga No. 18, Bandung",          "+62 812 3344 5566", "09.00 – 21.00"),
-        new Store("platos",      "Plato's Atheneum",    R.drawable.store_2,
-            "Yogyakarta","Jl. Malioboro No. 52, Yogyakarta",   "+62 877 1122 3344", "10.00 – 22.00"),
-        new Store("serpents",    "The Serpent's Archive",R.drawable.store_4,
-            "Jakarta",   "Jl. Kemang Raya No. 7, Jakarta",     "+62 813 9988 7766", "08.00 – 20.00"),
-        new Store("alexandria",  "Alexandria Branch",   R.drawable.store_5,
-            "Surabaya",  "Jl. Tunjungan No. 31, Surabaya",     "+62 856 4455 6677", "09.00 – 21.00")
+        new Store("ivory-tower", "Ivory Tower Books",    R.drawable.store_1,
+            "Bandung",   "Jl. Braga No. 18, Bandung",  "+62 812 3344 5566", "09.00 – 21.00"),
+        new Store("alexandria",  "Alexandria Branch",    R.drawable.store_2,
+            "Jakarta",   "Jl. Kemang No. 7, Jakarta",  "+62 812 3212 7676", "08.00 – 20.00"),
+        new Store("golden-leaf", "The Golden Leaf",      R.drawable.store_3,
+            "Yogyakarta","Jl. Malioboro Jogja",        "+62 812 6767 3366", "09.30 – 21.30"),
+        new Store("serpents",    "The Serpent's Archive", R.drawable.store_4,
+            "Surabaya",  "Jl. Tunjungan, Surabaya",    "+62 856 4455 6677", "09.00 – 21.00"),
+        new Store("platos",      "Plato's Atheneum",     R.drawable.store_5,
+            "Semarang",  "Jl. Pemuda, Semarang",       "+62 813 5566 7788", "09.00 – 21.00")
     );
 
     // Home carousel shows 5 slides in Figma order (Carousel component 753:638,

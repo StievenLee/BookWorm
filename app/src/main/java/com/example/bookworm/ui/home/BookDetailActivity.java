@@ -17,6 +17,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import com.example.bookworm.R;
 import com.example.bookworm.data.Catalogue;
 import com.example.bookworm.model.Book;
@@ -35,7 +40,15 @@ public class BookDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Draw edge-to-edge so the caramel meta strip extends behind the status bar /
+        // camera cutout; applyStatusBarInset() then pads the text clear of it.
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        getWindow().setStatusBarColor(android.graphics.Color.TRANSPARENT);
+        new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView())
+                .setAppearanceLightStatusBars(false); // light icons over caramel
         setContentView(R.layout.activity_book_detail);
+
+        applyStatusBarInset();
 
         String bookId = getIntent().getStringExtra("book_id");
         book = Catalogue.findById(bookId != null ? bookId : "");
@@ -52,6 +65,24 @@ public class BookDetailActivity extends AppCompatActivity {
         bindBook();
         setupQtyControls();
         setupButtons();
+    }
+
+    // Applies the real status-bar / camera-cutout inset as top padding on the meta
+    // strip (on top of an 8dp base gap in XML), now that the activity draws
+    // edge-to-edge. Replaces a hardcoded 40dp that collided with the camera on
+    // phones with a taller status bar. Only the top inset is applied — the bottom
+    // is left to the layout so no caramel band shows below the order card.
+    private void applyStatusBarInset() {
+        View metaStrip = findViewById(R.id.meta_strip);
+        int baseTop    = metaStrip.getPaddingTop();
+
+        ViewCompat.setOnApplyWindowInsetsListener(metaStrip, (v, insets) -> {
+            int top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top;
+            v.setPadding(v.getPaddingLeft(), baseTop + top,
+                    v.getPaddingRight(), v.getPaddingBottom());
+            return insets;
+        });
+        ViewCompat.requestApplyInsets(metaStrip);
     }
 
     private void bindBook() {
