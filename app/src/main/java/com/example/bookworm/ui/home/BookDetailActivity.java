@@ -31,6 +31,10 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class BookDetailActivity extends AppCompatActivity {
 
+    // Valid phone-number length (digits only) — Indonesian mobile range, e.g. 08xxxxxxxxxx.
+    private static final int PHONE_MIN_DIGITS = 10;
+    private static final int PHONE_MAX_DIGITS = 13;
+
     private Book book;
     private int qty = 1;
     private TextView tvQty, tvTotal, tvPriceEach;
@@ -162,6 +166,12 @@ public class BookDetailActivity extends AppCompatActivity {
         } else if (!phone.matches("[0-9]+")) {
             tilPhone.setError("Phone number must be numeric.");
             errors.append("• Phone number must be numeric.\n");
+            hasError = true;
+        } else if (phone.length() < PHONE_MIN_DIGITS || phone.length() > PHONE_MAX_DIGITS) {
+            String msg = "Phone number must be " + PHONE_MIN_DIGITS
+                    + "–" + PHONE_MAX_DIGITS + " digits.";
+            tilPhone.setError(msg);
+            errors.append("• ").append(msg).append("\n");
             hasError = true;
         }
 

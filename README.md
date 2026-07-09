@@ -11,8 +11,16 @@ Aplikasi Android untuk pecinta buku yang menghadirkan pengalaman belanja buku kl
 - **Home** — banner carousel buku featured + grid buku pilihan
 - **Books** — daftar lengkap semua buku dengan filter kategori (Fiction / Non-Fiction)
 - **Stores** — daftar toko fisik beserta alamat, nomor telepon, dan jam operasional
-- **Book Detail** — informasi lengkap buku, harga, dan tombol order
+- **Book Detail** — informasi lengkap buku, harga, form order dengan validasi input
 - **Avatar menu** — akses profil dan logout dari semua layar utama
+
+### Validasi Form
+
+| Field | Aturan |
+|---|---|
+| Username / Email / Password (Register) | Wajib diisi; password harus alfanumerik dan cocok dengan konfirmasi |
+| Delivery Address (Order) | Wajib diisi |
+| Phone Number (Order) | Wajib diisi, hanya angka, dan panjang **10–13 digit** (format nomor HP Indonesia) |
 
 ---
 
@@ -163,6 +171,8 @@ MainActivity
 ```
 
 Navigasi antar tab menggunakan `FLAG_ACTIVITY_REORDER_TO_FRONT` — instance lama diangkat ke depan tanpa dibuat ulang, sehingga scroll position tetap terjaga.
+
+Halaman **Book Detail** digambar *edge-to-edge*: strip caramel di atas memanjang ke belakang status bar, dan padding atas dihitung dari `WindowInsets` (bukan nilai tetap) agar teks selalu aman dari status bar / camera cutout di semua perangkat.
 
 ---
 
