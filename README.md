@@ -5,7 +5,7 @@ Aplikasi Android untuk pecinta buku yang menghadirkan pengalaman belanja buku kl
 ---
 
 ## Link Prototype Figma
-- https://www.figma.com/proto/cPoIsPn2UtZfEVEIPxedXZ/UX---LAB---Cawu-5?node-id=0-1&t=f1m90emQAfzg492c-1
+https://www.figma.com/proto/cPoIsPn2UtZfEVEIPxedXZ/UX---LAB---Cawu-5?node-id=0-1&t=f1m90emQAfzg492c-1
 
 ## Fitur
 
